@@ -10,7 +10,6 @@
 ```
 streamlit run app.py
 →  http://localhost:8501
-   Login: admin / admin123
 ```
 
 ---
@@ -209,14 +208,11 @@ Login: `admin / admin123`
 
 ---
 
-## 🔑 Admin Login
+## 🔑 Role-Based Access
 
-| Username | Password   | Role    |
-| -------- | ---------- | ------- |
-| admin    | admin123   | Admin   |
-| analyst  | analyst123 | Analyst |
-| viewer   | viewer123  | Viewer  |
+The app supports three access levels — **Admin**, **Analyst**, and **Viewer** — with different dashboard permissions for each.
 
+Credentials are configured via environment variables (see `.env.example`) and are not committed to the repository.
 ---
 
 ## 💡 Key Business Insights
