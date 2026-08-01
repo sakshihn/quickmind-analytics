@@ -248,12 +248,14 @@ div[data-testid="stDataFrame"] { border-radius: 12px; overflow: hidden; }
 """, unsafe_allow_html=True)
 
 # ──────────────────────────────────────────────────────────────────
-#  CREDENTIALS  (extend as needed)
+#  CREDENTIALS  (demo-only auth — not representative of production
+#  security patterns. Real deployments would use env-managed secrets,
+#  hashed passwords, and a proper identity provider, not this.)
 # ──────────────────────────────────────────────────────────────────
 USERS = {
-    "admin":   {"password": "admin123",  "role": "Admin",   "name": "Admin User"},
-    "analyst": {"password": "analyst123","role": "Analyst", "name": "Data Analyst"},
-    "viewer":  {"password": "viewer123", "role": "Viewer",  "name": "Dashboard Viewer"},
+    "admin":   {"password": os.environ.get("DEMO_ADMIN_PASSWORD",   "demo2026"), "role": "Admin",   "name": "Admin User"},
+    "analyst": {"password": os.environ.get("DEMO_ANALYST_PASSWORD", "demo2026"), "role": "Analyst", "name": "Data Analyst"},
+    "viewer":  {"password": os.environ.get("DEMO_VIEWER_PASSWORD",  "demo2026"), "role": "Viewer",  "name": "Dashboard Viewer"},
 }
 
 # ──────────────────────────────────────────────────────────────────
@@ -607,11 +609,9 @@ def page_login():
                       text-transform:uppercase;letter-spacing:0.05em;font-weight:600;">Demo Credentials</div>
           <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
             <span style="font-size:0.78rem;color:#A5B4FC;">
-              👑 <b>admin</b> / admin123</span>
-            <span style="font-size:0.78rem;color:#C4B5FD;">
-              📊 <b>analyst</b> / analyst123</span>
-            <span style="font-size:0.78rem;color:#F9A8D4;">
-              👁 <b>viewer</b> / viewer123</span>
+              👑 <b>admin</b> / demo2026
+                📊 <b>analyst</b> / demo2026
+                👁 <b>viewer</b> / demo2026
           </div>
         </div>
 
